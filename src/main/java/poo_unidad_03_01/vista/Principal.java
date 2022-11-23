@@ -5,7 +5,9 @@
 
 package poo_unidad_03_01.vista;
 
+
 import javax.swing.JFrame;
+
 
 /**
  *
@@ -15,9 +17,19 @@ public class Principal {
 
     public static void main(String[] args) {
         
+        /*
         var v1= new Ventana0301a("Ecuador");
         v1.iniciarComponentes();
         v1.setVisible(true);
+         
+        
+        
+        
+        var v2= new Ventana0301b();
+        */
+        var ventana3 = new Ventana0301c();
+        
+        
         
         /*
         var v2= new Ventana0301a("Qatar");

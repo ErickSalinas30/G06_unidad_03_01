@@ -49,7 +49,8 @@ public class Ventana0301a extends JFrame{
         this.jPanelList.add(jPanelNaranja);
         this.jPanelList.add(jPanelCeleste);
         for(var jPanel: this.jPanelList){
-            this.getContentPane().add(jPanel);
+            this.getContentPane().add(jPanel);          
+                  
         }
         
         
