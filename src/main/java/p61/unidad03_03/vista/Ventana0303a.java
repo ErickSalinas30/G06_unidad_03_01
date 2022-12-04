@@ -2,11 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package p61.unidad03_02.vista;
+package p61.unidad03_03.vista;
 
+import p61.unidad03_02.vista.*;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ButtonGroup;
@@ -24,7 +27,7 @@ import javax.swing.JTextField;
  *
  * @author usuario
  */
-public class Ventana0302a extends JFrame{
+public class Ventana0303a extends JFrame implements ActionListener{
     
     
     public List<JPanel> jPanelList;
@@ -38,7 +41,7 @@ public class Ventana0302a extends JFrame{
     
     
 
-    public Ventana0302a(String title) throws HeadlessException {
+    public Ventana0303a(String title) throws HeadlessException {
         super(title);
         this.setSize(400, 600);
         this.setLocation(200, 100);
@@ -47,7 +50,7 @@ public class Ventana0302a extends JFrame{
         this.iniciarJTextFields();
         this.iniciarJButtons();
         this.iniciarJCheckBoxs();
-        this.iniciarJRadioButton();
+        this.iniciarJRadioButtons();
         this.iniciarCombos();
         this.setContentPane(this.jPanelList.get(0));
         this.setVisible(true);
@@ -127,6 +130,10 @@ public class Ventana0302a extends JFrame{
         
         this.jButtonList.add(new JButton("Guardar"));
         this.jButtonList.add(new JButton("Cancelar"));
+        this.jButtonList.get(0).addActionListener(this);
+        this.jButtonList.get(1).addActionListener(this);
+        
+        
         
         this.jPanelList.get(6).add(this.jButtonList.get(0));
         this.jPanelList.get(6).add(this.jButtonList.get(1));
@@ -142,6 +149,11 @@ public class Ventana0302a extends JFrame{
         this.jCheckBoxList.add(new JCheckBox("Mediocampo"));
         this.jCheckBoxList.add(new JCheckBox("Delantero"));
         
+        this.jCheckBoxList.get(0).addActionListener(this);
+        this.jCheckBoxList.get(0).addActionListener(this);
+        this.jCheckBoxList.get(0).addActionListener(this);
+        this.jCheckBoxList.get(0).addActionListener(this);
+        
         this.jPanelList.get(7).add(this.jCheckBoxList.get(0));
         this.jPanelList.get(7).add(this.jCheckBoxList.get(1));
         this.jPanelList.get(7).add(this.jCheckBoxList.get(2));
@@ -149,7 +161,7 @@ public class Ventana0302a extends JFrame{
         
     }
     
-    public void iniciarJRadioButton(){
+    public void iniciarJRadioButtons(){
         this.jRadioButtonList = new ArrayList<>();
         var buttonGroup = new ButtonGroup();
         
@@ -186,5 +198,58 @@ public class Ventana0302a extends JFrame{
         
         
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        if (e.getActionCommand().equals("Guardar")) {
+            
+            System.out.println(this.recuperarDatosIngresados()[0]);
+            
+        }else if (e.getSource().equals(this.jButtonList.get(1))) {
+            this.limpiarDatosIngresados();
+        }else if (e.getActionCommand().contentEquals("Arquero")) {
+            System.out.println("Dio click en Arquero");
+        }else if (e.getActionCommand().contentEquals("Defensa")) {
+            System.out.println("Dio click en Defensa");
+        }else if (e.getActionCommand().contentEquals("Mediocampo")) {
+            System.out.println("Dio click en Mediocampo");
+        }else if (e.getActionCommand().contentEquals("Delantero")) {
+            System.out.println("Dio click en delantero");
+        }else if (e.getActionCommand().contentEquals("Varon")) {
+            System.out.println("Dio click en Varon");
+        }else if (e.getActionCommand().contentEquals("Mujer")) {
+            System.out.println("Dio click en Mujer");
+        }else if (e.getActionCommand().contentEquals("Catar")){
+            System.out.println("Dio click en Catar");
+        }
+               
+        if (e.getActionCommand().equals("Catar")) {
+            System.out.println("Dio click en Catar");
+           
+        }else if (e.getActionCommand().equals("Senegal")) {
+            System.out.println("Dio click en senegal");
+        }else if (e.getActionCommand().equals("Paises Bajos")) {
+            System.out.println("Dio click en Paises Bajos");
+        }else{
+            System.out.println("Dio click en Ecuador");
+        }
+        
+                        
+    }
+    
+    private void limpiarDatosIngresados(){
+        this.jTextFieldList.get(0).setText("  ");
+        
+    }
+    
+    public String [] recuperarDatosIngresados(){
+        var retorno=new String[12];
+        retorno[0]=this.jTextFieldList.get(0).getText();
+        return retorno;
+        
+        
+    }
+    
     
 }

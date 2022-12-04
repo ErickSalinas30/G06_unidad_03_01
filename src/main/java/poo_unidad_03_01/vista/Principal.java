@@ -24,11 +24,11 @@ public class Principal {
          
         
         
-        
-        var v2= new Ventana0301b();
         */
+        var v2= new Ventana0301c();
+        /*
         var ventana3 = new Ventana0301c();
-        
+        */
         
         
         /*
